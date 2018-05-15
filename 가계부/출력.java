@@ -1,31 +1,22 @@
 package 가계부;
 
 public class 출력 {
-	private String[] 결산항목, 결산품목;
-	private int[] 결산액;
-	private int 총수입, 총지출, 총잔액;
-	
-	public void 출력자료_설정(String[] 결산항목, String[] 결산품목, int[] 결산액, int 총수입, int 총지출, int 총잔액) {
-		this.결산항목 = 결산항목;
-		this.결산품목 = 결산품목;
-		this.결산액 = 결산액;
-		this.총수입 = 총수입;
-		this.총지출 = 총지출;
-		this.총잔액 = 총잔액;
+	public void 수지내역_출력(String 항목, String 품목, int 금액) {
+		System.out.println("========== 수지내역  ==========");
+		System.out.println(항목 + " > " + 품목 + " " + 금액);
 	}
-
-	public void 결산장부() {
-		System.out.println("========== 장부내역  ==========");
-		for(int i = 0; i < 10; i++) {
-			if(결산품목[i] != null) {
-				System.out.println( 결산항목[i] + " > " + 결산품목[i] + " : " + 결산액[i]);
-			}else { break; }
-		}
-		System.out.println(" ");
-		//총결산액 출력
-		System.out.println("========== 결산장부  ==========");
-		System.out.println ( "총수입 > " + 총수입 );
-		System.out.println ( "총지출 > " + 총지출 );
-		System.out.println ( "총잔액 > " + 총잔액 );
+	public void 누적내역_출력(int 누적수입, int 누적지출, int 누적잔액) {
+		System.out.println("========== 누적내역  ==========");
+		System.out.println("누적수입  > " + 누적수입);
+		System.out.println("누적지출  > " + 누적지출);
+		System.out.println("누적잔액  > " + 누적잔액);
+	}
+	public void 예산차액_비율_출력(int 수입차액, int 지출차액, double 수입비율, double 지출비율) {
+		System.out.println("========== 예산대비차액 ==========");
+		System.out.println("수입차액  > " + 수입차액);
+		System.out.println("지출차액  > " + 지출차액);
+		System.out.println("========== 예산대비비율 ==========");
+		System.out.println("수입비율  > " + 수입비율 + "%");
+		System.out.println("지출비율  > " + 지출비율 + "%");
 	}
 }

@@ -1,52 +1,46 @@
 package 가계부;
 public class 장부 {
-	private String[] 항목들, 수입항목들, 지출항목들;
-	private String[] 결산항목들, 결산품목들;
-	private int[] 수입액들, 지출액들, 결산액들;
-	private String 항목;
-	private int 수입항목수, 지출항목수, 결산항목수, 총수입, 총지출;
+	private String 수입품목, 지출품목;
+	private int 수입금액, 지출금액, 누적수입, 누적지출, 누적잔액, 수입차액, 지출차액, 수입비율, 지출비율;
 	
-	장부() {
-		수입항목들 = new String[10];
-		지출항목들 = new String[10];
-		결산항목들 = new String[10];
-		결산품목들 = new String[10];
-		결산액들 = new int[10];
-		수입액들 = new int[10];
-		지출액들 = new int[10];
-	}
-	public void 수입장부_설정(String a, int b) {
-		수입항목들[수입항목수] = a; 수입액들[수입항목수] = b;
-	}
-	public void 지출장부_설정(String c, int d) {
-		지출항목들[지출항목수] = c; 지출액들[지출항목수] = d;
-	}
-	public void 결산장부_관리(int 선택자) {
-			if(선택자 == 1) {
-				결산항목들[결산항목수] = "수입"; 
-				결산품목들[결산항목수] = 수입항목들[수입항목수];
-				결산액들[결산항목수] = 수입액들[수입항목수];
-				수입항목수++;	결산항목수++;
-			} else if(선택자 == 2) {
-				결산항목들[결산항목수] = "지출"; 
-				결산품목들[결산항목수] = 지출항목들[지출항목수];
-				결산액들[결산항목수] = 지출액들[지출항목수];
-				지출항목수++;	결산항목수++;
-			}
-	}
-	public int 결산_총수입() {
-		for (수입항목수 = 0; 수입항목수 < 수입액들.length; 수입항목수++) {
-			총수입 += 수입액들[수입항목수];
+	public void 장부_설정(String 항목, String 품목, int 금액) {
+		if( 항목.equals("수입") ) { 
+			수입품목 = 품목;
+			수입금액 = 금액;
+		} else if( 항목.equals("지출") ) {
+			지출품목 = 품목;
+			지출금액 = 금액;
 		}
-		return 총수입;
 	}
-	public int 결산_총지출() {
-		for (지출항목수 = 0; 지출항목수 < 지출액들.length; 지출항목수++) {
-			총지출 += 지출액들[지출항목수];
+	public void 누적금액_관리(String 항목, int 수입금액, int 지출금액) {
+		if( 항목.equals("수입") ) { 
+			누적수입 += 수입금액;
+		} else if( 항목.equals("지출") ) {
+			누적지출 += 지출금액;
 		}
-		return 총지출;
+		누적잔액 = 누적수입 - 누적지출;
 	}
-	public String[] 결산항목장부_반환() { return 결산항목들; }
-	public String[] 결산품목장부_반환() { return 결산품목들; }
-	public int[] 결산액장부_반환() { return 결산액들; }
+	public void 차액_관리(String 항목, int 수입예산, int 지출예산) {
+		if( 항목.equals("수입") ) { 
+			수입차액 = 수입예산 - 누적수입;
+			수입비율 = (int)((double)수입차액 / (double)수입예산 * 100);
+		} else if( 항목.equals("지출") ) {
+			지출차액 = 지출예산 - 누적지출;
+			지출비율 = (int)((double)지출차액 / (double)지출예산 * 100);
+		}
+	}
+	
+	public String 수입품목_반환() { return 수입품목; }
+	public int 수입금액_반환() { return 수입금액; }
+	public String 지출품목_반환() { return 지출품목; }
+	public int 지출금액_반환() { return 지출금액; }
+	
+	public int 누적수입_반환() { return 누적수입; }
+	public int 누적지출_반환() { return 누적지출; }
+	public int 누적잔액_반환() { return 누적잔액; }
+	
+	public int 수입차액_반환() { return 수입차액; }
+	public int 지출차액_반환() { return 지출차액; }
+	public int 수입비율_반환() { return 수입비율; }
+	public int 지출비율_반환() { return 지출비율; }
 }

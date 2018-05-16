@@ -15,7 +15,7 @@ public class 장부 {
 		수입비율들 = new int[10];
 		지출비율들 = new int[10];
 	}
-	public void 수지내역_설정(String 항목, String 품목, int 금액, int 누적잔액, int 수입차액, int 지출차액, int 수입비율, int 지출비율) {
+	public void 장부내역_설정(String 항목, String 품목, int 금액, int 누적잔액, int 수입차액, int 지출차액, int 수입비율, int 지출비율) {
 		if ( 항목수 < 항목들.length ) {
 			항목들[항목수] = 항목; 
 			품목들[항목수] = 품목;
@@ -28,12 +28,10 @@ public class 장부 {
 		} //항목수가 배열길이를 넘지 않는 한에서 삽입
 			항목수++;
 	}
-	public void 장부_설정(String 항목, String 품목, int 금액) {
+	public void 수입_지출금액_설정(String 항목, int 금액) {
 		if( 항목.equals("수입") ) { 
-			수입품목 = 품목;
 			수입금액 = 금액;
 		} else if( 항목.equals("지출") ) {
-			지출품목 = 품목;
 			지출금액 = 금액;
 		}
 	}

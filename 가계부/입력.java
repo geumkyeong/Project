@@ -12,7 +12,7 @@ public class 입력 {
 		sc = new Scanner(System.in);
 	}
 	public int 제어자_입력() {
-		System.out.print("프로그램을 계속하려면 [1], 종료하려면 [0] 을 입력하시오 : ");
+		System.out.print("예산을 수정하려면 [1], 프로그램을 계속하려면[2], 종료하려면 [0] 을 입력하시오 : ");
 		제어자 = sc.nextInt();
 		return 제어자;
 	}

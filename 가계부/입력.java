@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class 입력 {
 	private String 항목, 품목;
-	private int 제어자, 금액, 수입예산, 지출예산;
+	private int 수입예산, 지출예산, 금액;
 	
 	Scanner sc;
 	
@@ -13,7 +13,7 @@ public class 입력 {
 	}
 	public int 제어자_입력() {
 		System.out.print("예산을 수정하려면 [1], 프로그램을 계속하려면[2], 종료하려면 [0] 을 입력하시오 : ");
-		제어자 = sc.nextInt();
+		int 제어자 = sc.nextInt();
 		return 제어자;
 	}
 	public void 예산_입력() {
@@ -27,6 +27,7 @@ public class 입력 {
 	
 	public int 수입예산_반환() { return 수입예산; }
 	public int 지출예산_반환() { return 지출예산; }
+	
 	public String 항목_반환() { return 항목; }
 	public String 품목_반환() { return 품목; }
 	public int 금액_반환() { return 금액; }

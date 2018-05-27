@@ -1,7 +1,7 @@
 package 가계부;
 public class 장부 {
-	private String 항목, 품목;
-	private int 금액, 누적잔액;
+	String 항목, 품목;
+	int 금액, 누적잔액;
 	
 	public void 장부_설정(String 항목, String 품목, int 금액) {
 		this.항목 = 항목;

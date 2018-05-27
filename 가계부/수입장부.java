@@ -1,7 +1,7 @@
 package 가계부;
 
 public class 수입장부 {
-	private int 수입예산, 수입금액, 누적수입, 수입차액, 수입비율;
+	int 수입예산, 수입금액, 누적수입, 수입차액, 수입비율;
 	
 	public void 수입예산_설정(int 수입예산) {
 		this.수입예산 = 수입예산;

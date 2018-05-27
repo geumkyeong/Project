@@ -1,7 +1,7 @@
 package 가계부;
 
 public class 지출장부 {
-	private int 지출예산, 지출금액, 누적지출, 지출차액, 지출비율;
+	int 지출예산, 지출금액, 누적지출, 지출차액, 지출비율;
 	
 	public void 지출예산_설정(int 지출예산) {
 		this.지출예산 = 지출예산;

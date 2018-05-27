@@ -1,8 +1,20 @@
 package 가계부;
 
 public class 계산기 {
-	private int 수입금액, 지출금액, 누적수입, 누적지출, 누적잔액, 수입차액, 수입비율, 지출차액, 지출비율;
+	private int 수입예산, 지출예산, 수입금액, 지출금액, 누적수입, 누적지출, 누적잔액, 수입차액, 수입비율, 지출차액, 지출비율;
 	
+//	public void 예산증감_계산(String 예산항목, String 부호, int 증감액) {
+//		if( 예산항목.equals("수입") && 부호.equals("+") ) {
+//			수입예산 += 증감액;
+//		} else if( 예산항목.equals("수입") && 부호.equals("-") ) {
+//			수입예산 -= 증감액;
+//		}
+//		if( 예산항목.equals("지출") && 부호.equals("+") ) {
+//			지출예산 += 증감액;
+//		} else if( 예산항목.equals("지출") && 부호.equals("-") ) {
+//			지출예산 -= 증감액;
+//		}
+//	}
 	public void 누적금액_계산(String 항목, int 수입금액, int 지출금액) {
 		if( 항목.equals("수입") ) 
 			누적수입 += 수입금액;
@@ -17,6 +29,8 @@ public class 계산기 {
 		지출비율 = (int)((double) 지출차액 / (double) 지출예산 * 100);
 	}
 	
+	public int 수입예산_반환() { return 수입예산; }
+	public int 지출예산_반환() { return 지출예산; }
 	public int 누적수입_반환() { return 누적수입; }
 	public int 누적지출_반환() { return 누적지출; }
 	public int 누적잔액_반환() { return 누적잔액; }
